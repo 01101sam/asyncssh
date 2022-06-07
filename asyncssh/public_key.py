@@ -2956,9 +2956,6 @@ def decode_ssh_public_key(data: bytes) -> SSHKey:
         alg = packet.get_string()
         handler = _public_key_alg_map.get(alg)
 
-        if not handler and alg.startswith(b'rsa-sha2'):
-            handler = _public_key_alg_map.get(b'ssh-rsa')
-
         if handler:
             key_params = handler.decode_ssh_public(packet)
             packet.check_end()
