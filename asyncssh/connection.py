@@ -1549,8 +1549,8 @@ class SSHConnection(SSHPacketHandler, asyncio.Protocol):
 
         # If we're encrypting and we have no data outstanding, insert an
         # ignore packet into the stream
-        if self._send_encryption and pkttype not in (MSG_IGNORE, MSG_EXT_INFO):
-            self.send_packet(MSG_IGNORE, String(b''))
+        # if self._send_encryption and pkttype not in (MSG_IGNORE, MSG_EXT_INFO):
+        #     self.send_packet(MSG_IGNORE, String(b''))
 
         orig_payload = Byte(pkttype) + b''.join(args)
 
